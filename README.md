@@ -1,27 +1,40 @@
-[Project Name] 🎯
+PetCoop🎯
+
 Basic Details
+
 Team Name: Devisors
+
 Team Members
-Team Lead:T A Devinandana - College of Engineering ,Chengannur
-Member 2: Vimal Vinod V - College of Engineering ,Chengannur
+
+Team Lead: Vimal Vinod V - College of Engineering ,Chengannur
+
+Member 2: T A Devinandana- College of Engineering ,Chengannur
+
 Member 3: Aleetta Mariya Sebastian -  College of Engineering ,Chengannur
+
+
 Project Description
-[2-3 lines about what your project does]
+
+A platform for pets to get their citizenship,rights etc.
 
 The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Assuming that one day our pet asked us to they want equal rights as man..
 
 The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+We develop a site to help the pets to get their citizenship and set their profile in the portal.
 
 Technical Details
 Technologies/Components Used
 For Software:
 
-[Languages used]
-[Frameworks used]
-[Libraries used]
-[Tools used]
+HTML,CSS,JS 
+
+Django[Backend]
+
+python 
+
+Visual sudio code
+
 For Hardware:
 
 [List main components]
@@ -31,24 +44,35 @@ Implementation
 For Software:
 
 Installation
-[commands]
+pip install Django
+django-admin startproject projectname
+
 
 Run
-[commands]
+python manage.py runserver
+
 
 Project Documentation
 For Software:
 
 Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name) Add caption explaining what this shows
 
-![Screenshot2](Add screenshot 2 here with proper name) Add caption explaining what this shows
+![homepage](https://github.com/user-attachments/assets/d2ab0c67-dc38-42c5-bf67-71b89285f5d7)
 
-![Screenshot3](Add screenshot 3 here with proper name) Add caption explaining what this shows
+
+Home page of the site.
+
+![loginpage](https://github.com/user-attachments/assets/7f45a8f0-5559-46dd-8443-64c635416567)
+
+Login page of user.
+
+
+![petprofile](https://github.com/user-attachments/assets/341750c7-738d-4aa6-9198-42a65f5ff3b0)
+
+Pet Profile.
 
 Diagrams
-![Workflow](Add your workflow/architecture diagram here) Add caption explaining your workflow
-
+Nothing...
 For Hardware:
 
 Schematic & Circuit
