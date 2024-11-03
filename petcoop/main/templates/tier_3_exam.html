@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}Tier 3 Exam{% endblock %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCoop Tier 3 Exam</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Link to your CSS file -->
+    <style>
+        /* Internal CSS for Tier 3 Exam Page */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light background color */
+            color: #333; /* Dark text color for readability */
+            padding: 20px; /* Padding for body */
+        }
+
+        h1 {
+            text-align: center; /* Center align the header */
+            margin-bottom: 20px; /* Space below the header */
+        }
+
+        p {
+            text-align: center; /* Center align the introductory paragraph */
+        }
+
+        form {
+            max-width: 600px; /* Limit the form width */
+            margin: 0 auto; /* Center the form */
+            padding: 20px; /* Inner padding for the form */
+            background-color: #fff; /* White background for the form */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Style for questions */
+        div {
+            margin-bottom: 15px; /* Space between questions */
+        }
+
+        label {
+            display: block; /* Each option on a new line */
+            margin-left: 20px; /* Indentation for options */
+        }
+
+        button {
+            display: block; /* Center the button */
+            margin: 20px auto; /* Center alignment */
+            padding: 10px 20px; /* Button padding */
+            background-color: #4CAF50; /* Green background for button */
+            color: white; /* White text color */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded button edges */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            form {
+                width: 90%; /* Adjust form width on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>PetCoop Citizenship Exam: Tier 3</h1>
+    <p>Answer the questions below:</p>
+
+    <h3 style="text-align: center;">Tier 3 Exam Questions (Advanced Understanding)</h3>
+    
+    <form method="POST" action="{% url 'submit_tier_3_exam' %}">
+        {% csrf_token %}
+        
+        <div>
+            <p>1. What are some strategies that PetCoop can use to raise awareness about pet rights?</p>
+            <label><input type="radio" name="question_1" value="A"> A) Hosting events and workshops</label>
+            <label><input type="radio" name="question_1" value="B"> B) Creating online petitions</label>
+            <label><input type="radio" name="question_1" value="C"> C) Partnering with local businesses for sponsorships</label>
+            <label><input type="radio" name="question_1" value="D"> D) All of the above</label>
+        </div>
+
+        <div>
+            <p>2. How can technology play a role in supporting the movement for pet rights?</p>
+            <label><input type="radio" name="question_2" value="A"> A) By creating apps that educate pet owners</label>
+            <label><input type="radio" name="question_2" value="B"> B) By allowing pets to communicate online</label>
+            <label><input type="radio" name="question_2" value="C"> C) By providing virtual training sessions for pets</label>
+            <label><input type="radio" name="question_2" value="D"> D) By replacing pets with robots</label>
+        </div>
+
+        <div>
+            <p>3. What legislation might be relevant to the advocacy efforts of PetCoop?</p>
+            <label><input type="radio" name="question_3" value="A"> A) Animal welfare laws</label>
+            <label><input type="radio" name="question_3" value="B"> B) Labor laws</label>
+            <label><input type="radio" name="question_3" value="C"> C) Property laws</label>
+            <label><input type="radio" name="question_3" value="D"> D) Tax laws</label>
+        </div>
+
+        <div>
+            <p>4. Why is it important for pets to have a voice in their rights?</p>
+            <label><input type="radio" name="question_4" value="A"> A) Because they need to be heard to improve their living conditions</label>
+            <label><input type="radio" name="question_4" value="B"> B) Because pets cannot express themselves</label>
+            <label><input type="radio" name="question_4" value="C"> C) Because it is a trend among pets</label>
+            <label><input type="radio" name="question_4" value="D"> D) Because it reduces the responsibilities of pet owners</label>
+        </div>
+
+        <div>
+            <p>5. What challenges might PetCoop face in its advocacy efforts?</p>
+            <label><input type="radio" name="question_5" value="A"> A) Lack of funding</label>
+            <label><input type="radio" name="question_5" value="B"> B) Opposition from those who disagree with pet rights</label>
+            <label><input type="radio" name="question_5" value="C"> C) Difficulty in reaching a wider audience</label>
+            <label><input type="radio" name="question_5" value="D"> D) All of the above</label>
+        </div>
+
+        <button type="submit">Submit Exam</button>
+    </form>
+</body>
+</html>
+
+{% endblock %}

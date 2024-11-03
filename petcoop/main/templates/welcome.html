@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light background color */
+            color: #333; /* Dark text color for readability */
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #4CAF50; /* Green background for navbar */
+            padding: 15px; /* Spacing inside the navbar */
+            text-align: center; /* Center-align the navbar items */
+        }
+
+        .navbar ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+        }
+
+        .navbar li {
+            display: inline; /* Display items in a line */
+            margin: 0 15px; /* Spacing between items */
+        }
+
+        .navbar a {
+            color: white; /* White text color */
+            text-decoration: none; /* No underline */
+            font-weight: bold; /* Bold text */
+        }
+
+        .navbar a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 800px;
+            margin: 50px auto; /* Center the container */
+            padding: 20px;
+            background-color: #fff; /* White background for the main content */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #5a5a5a; /* Slightly darker text for the heading */
+            margin-bottom: 20px;
+        }
+
+        /* Pet Name */
+        .pet-name {
+            font-size: 1.8em;
+            color: #ff6347; /* Tomato color for the pet name */
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        /* Certificate Status */
+        .certificate-status {
+            font-size: 1.2em;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px auto;
+            background-color: #4CAF50; /* Green background for buttons */
+            color: white; /* White text color */
+            text-decoration: none; /* No underline */
+            border-radius: 5px; /* Rounded button edges */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Profile Information */
+        .profile-info {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd; /* Light border */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .main-container {
+                padding: 10px; /* Less padding on smaller screens */
+            }
+
+            h1 {
+                font-size: 2em; /* Smaller heading on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'citizenship_exam' %}">Citizenship Exam</a></li>
+        </ul>
+    </div>
+
+    <div class="main-container">
+        <h1>Welcome to PetCoop!</h1>
+        <div class="pet-name">{{ pet_name }}</div>
+
+        {% if pet_profile.profile_picture %}
+            <div class="profile-picture">
+                <img src="{{ pet_profile.profile_picture.url }}" alt="{{ pet_profile.name }}'s profile picture" style="max-width: 200px; border-radius: 10px;">
+            </div>
+        {% else %}
+            <p>No profile picture available.</p>
+        {% endif %}
+
+        <div class="certificate-status">
+            {% if certificate_completed %}
+                <p>Congratulations! You have completed your citizenship exams and received your certificate.</p>
+            {% else %}
+                <p>You have not completed your citizenship exams yet.</p>
+            {% endif %}
+        </div>
+
+        <a href="{% url 'create_pet_profile' %}" class="button">Edit Pet Profile</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PetCoop{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Link to your CSS file -->
+    <style>
+        /* Flexbox styles for the body and main */
+        body {
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+            min-height: 100vh; /* Full height of the viewport */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; /* Background color */
+        }
+
+        main {
+            flex: 1; /* Allow main to grow and fill available space */
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+            justify-content: center; /* Center items vertically */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50; /* Footer color */
+            color: white;
+        }
+
+        .exam-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center align the items */
+            justify-content: center; /* Center vertically */
+            background-color: #f9f9f9; /* Light background color */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            padding: 20px; /* Padding inside the container */
+            max-width: 400px; /* Maximum width for the container */
+            width: 90%; /* Responsive width */
+            margin: 20px auto; /* Center horizontally with margin */
+        }
+
+        input[type="text"] {
+            padding: 10px; /* Padding inside the input box */
+            border: 1px solid #ccc; /* Border for the input box */
+            border-radius: 5px; /* Rounded corners */
+            margin-bottom: 20px; /* Space below the input box */
+            width: 100%; /* Full width */
+            max-width: 200px; /* Limit the width */
+            font-size: 16px; /* Font size */
+        }
+
+        select {
+            padding: 10px; /* Padding inside the select box */
+            border: 1px solid #ccc; /* Border for the select box */
+            border-radius: 5px; /* Rounded corners */
+            margin-bottom: 20px; /* Space below the select box */
+            width: 100%; /* Full width */
+            max-width: 200px; /* Limit the width */
+            font-size: 16px; /* Font size */
+        }
+
+        button {
+            padding: 10px 20px; /* Padding for the button */
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text color */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px; /* Font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth background color transition */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        .alert {
+            background-color: #f44336; /* Red background for alerts */
+            color: white; /* White text color */
+            padding: 10px;
+            margin: 20px;
+            border-radius: 5px; /* Rounded corners */
+            text-align: center; /* Center text */
+            width: 90%; /* Responsive width */
+            max-width: 400px; /* Maximum width */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PetCoop</h1>
+    </header>
+
+    <main>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        <center>
+            <h2>Citizenship Exam</h2>
+            <p>Please enter your pet's name and select your exam tier:</p>
+        </center>
+
+        <div class="exam-container">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="pet_name" placeholder="Enter your pet's name" required>
+                <select name="tier" required>
+                    <option value="">Select Tier</option>
+                    <option value="1">Tier 1</option>
+                    <option value="2">Tier 2</option>
+                    <option value="3">Tier 3</option>
+                </select>
+                <button type="submit">Start Exam</button>
+            </form>
+        </div>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 PetCoop. All rights reserved.</p>
+    </footer>
+</body>
+</html>

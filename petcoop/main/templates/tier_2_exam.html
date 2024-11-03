@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block title %}Tier 2 Exam{% endblock %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCoop Tier 2 Exam</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Link to your CSS file -->
+    <style>
+        /* Internal CSS for Tier 2 Exam Page */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light background color */
+            color: #333; /* Dark text color for readability */
+            padding: 20px; /* Padding for body */
+        }
+
+        h1 {
+            text-align: center; /* Center align the header */
+            margin-bottom: 20px; /* Space below the header */
+        }
+
+        form {
+            max-width: 600px; /* Limit the form width */
+            margin: 0 auto; /* Center the form */
+            padding: 20px; /* Inner padding for the form */
+            background-color: #fff; /* White background for the form */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Style for questions */
+        div {
+            margin-bottom: 15px; /* Space between questions */
+        }
+
+        label {
+            display: block; /* Each option on a new line */
+            margin-left: 20px; /* Indentation for options */
+        }
+
+        button {
+            display: block; /* Center the button */
+            margin: 20px auto; /* Center alignment */
+            padding: 10px 20px; /* Button padding */
+            background-color: #4CAF50; /* Green background for button */
+            color: white; /* White text color */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded button edges */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            form {
+                width: 90%; /* Adjust form width on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>PetCoop Citizenship Exam: Tier 2</h1>
+    <p style="text-align: center;">Answer the questions below:</p>
+
+    <form method="POST" action="{% url 'submit_tier_2_exam' %}">
+        {% csrf_token %}
+        
+        <div>
+            <p>1. How does PetCoop plan to advocate for pets’ rights?</p>
+            <label><input type="radio" name="question_1" value="A"> A) By organizing protests</label>
+            <label><input type="radio" name="question_1" value="B"> B) By publishing pet magazines</label>
+            <label><input type="radio" name="question_1" value="C"> C) By partnering with pet brands</label>
+            <label><input type="radio" name="question_1" value="D"> D) By lobbying government officials</label>
+        </div>
+
+        <div>
+            <p>2. What is an important skill for pets to learn in order to gain citizenship?</p>
+            <label><input type="radio" name="question_2" value="A"> A) Performing tricks</label>
+            <label><input type="radio" name="question_2" value="B"> B) Communicating their needs effectively</label>
+            <label><input type="radio" name="question_2" value="C"> C) Eating different types of food</label>
+            <label><input type="radio" name="question_2" value="D"> D) Running fast</label>
+        </div>
+
+        <div>
+            <p>3. Which of the following is a potential benefit of pets gaining citizenship?</p>
+            <label><input type="radio" name="question_3" value="A"> A) Pets will have to follow more rules</label>
+            <label><input type="radio" name="question_3" value="B"> B) Pets will receive better treatment and resources</label>
+            <label><input type="radio" name="question_3" value="C"> C) Pets will have to wear uniforms</label>
+            <label><input type="radio" name="question_3" value="D"> D) Pets will lose their freedom</label>
+        </div>
+
+        <div>
+            <p>4. What role do pet owners play in the citizenship process for their pets?</p>
+            <label><input type="radio" name="question_4" value="A"> A) They have no role</label>
+            <label><input type="radio" name="question_4" value="B"> B) They must submit applications and support their pets</label>
+            <label><input type="radio" name="question_4" value="C"> C) They need to train their pets for competitions</label>
+            <label><input type="radio" name="question_4" value="D"> D) They should sell their pets for profit</label>
+        </div>
+
+        <div>
+            <p>5. What is one way to educate others about pet rights?</p>
+            <label><input type="radio" name="question_5" value="A"> A) Keep it a secret</label>
+            <label><input type="radio" name="question_5" value="B"> B) Share information through social media</label>
+            <label><input type="radio" name="question_5" value="C"> C) Ignore the issue</label>
+            <label><input type="radio" name="question_5" value="D"> D) Only talk to other pet owners</label>
+        </div>
+
+        <button type="submit">Submit Exam</button>
+    </form>
+</body>
+</html>
+
+{% endblock %}

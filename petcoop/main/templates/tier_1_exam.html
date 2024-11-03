@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tier X Exam{% endblock %}
+{% block content %}
+<h1>PetCoop Citizenship Exam: Tier 1</h1>
+<p>Answer the questions below:</p>
+
+<h3>Tier 1 Exam Questions (Basic Understanding)</h3>
+
+<div class="form-container"> <!-- Container for form alignment -->
+    <form method="POST" action="{% url 'submit_tier_1_exam' %}">
+        {% csrf_token %}
+
+        <div class="question">
+            <p>1. What is the purpose of the PetCoop organization?</p>
+            <div class="options">
+                <label><input type="radio" name="question_1" value="A"> A) To provide shelter for pets</label><br>
+                <label><input type="radio" name="question_1" value="B"> B) To empower pets and advocate for their rights</label><br>
+                <label><input type="radio" name="question_1" value="C"> C) To sell pet products</label><br>
+                <label><input type="radio" name="question_1" value="D"> D) To train pets for competitions</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. Which of the following pets can apply for citizenship through PetCoop?</p>
+            <div class="options">
+                <label><input type="radio" name="question_2" value="A"> A) Only dogs</label><br>
+                <label><input type="radio" name="question_2" value="B"> B) All types of pets</label><br>
+                <label><input type="radio" name="question_2" value="C"> C) Only cats and birds</label><br>
+                <label><input type="radio" name="question_2" value="D"> D) None of the above</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. What is one right that pets are fighting for through PetCoop?</p>
+            <div class="options">
+                <label><input type="radio" name="question_3" value="A"> A) Free access to parks</label><br>
+                <label><input type="radio" name="question_3" value="B"> B) The right to vote</label><br>
+                <label><input type="radio" name="question_3" value="C"> C) Equal treatment and representation</label><br>
+                <label><input type="radio" name="question_3" value="D"> D) Access to gourmet food</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. What should a pet owner do to support their pet's rights?</p>
+            <div class="options">
+                <label><input type="radio" name="question_4" value="A"> A) Ignore their needs</label><br>
+                <label><input type="radio" name="question_4" value="B"> B) Educate themselves about pet rights</label><br>
+                <label><input type="radio" name="question_4" value="C"> C) Only focus on training</label><br>
+                <label><input type="radio" name="question_4" value="D"> D) Sell their pets for profit</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>5. What is a common way pets can express their needs?</p>
+            <div class="options">
+                <label><input type="radio" name="question_5" value="A"> A) By barking or meowing</label><br>
+                <label><input type="radio" name="question_5" value="B"> B) By using social media</label><br>
+                <label><input type="radio" name="question_5" value="C"> C) By drawing pictures</label><br>
+                <label><input type="radio" name="question_5" value="D"> D) By ignoring their owners</label>
+            </div>
+        </div>
+
+        <button type="submit">Submit Exam</button>
+    </form>
+</div>
+{% endblock %}

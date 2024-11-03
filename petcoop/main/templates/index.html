@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% block content %}
+    <h2>Welcome to PetCoop!</h2>
+    <div class="hero">
+        <img src="{% static 'pet-hero.png' %}" alt="Hero Image" class="hero-image">
+    </div>
+    <p>Here, we empower pets to gain their rights!</p>
+    <p>
+        <a href="{% url 'signup' %}">Sign Up</a> or 
+        <a href="{% url 'login' %}">Log In</a> to get started.
+    </p>
+{% endblock %}

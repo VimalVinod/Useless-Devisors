@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Result</title>
+    <style>
+        .card {
+            background-color: white; /* Card background */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            padding: 20px; /* Inner spacing */
+            margin: 20px; /* Outer spacing */
+            max-width: 400px; /* Maximum width */
+            text-align: center; /* Center text */
+        }
+
+        .card h2 {
+            margin-bottom: 10px; /* Space below the heading */
+        }
+
+        .card ul {
+            list-style-type: none; /* Remove default list styling */
+            padding: 0; /* Remove padding */
+        }
+
+        .card ul li {
+            margin: 5px 0; /* Space between list items */
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Exam Result</h2>
+        <p>You have successfully completed the Tier {{ tier }} exam!</p>
+        <ul>
+            {% for right in rights %}
+                <li>{{ right }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'citizenship_exam' %}">Back to Exam Selection</a>
+    </div>
+</body>
+</html>
